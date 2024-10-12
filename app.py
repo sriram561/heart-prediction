@@ -12,6 +12,11 @@ app = Flask(__name__)
 CORS(app)
 
 
+@app.route('/')
+def home():
+    return "Welcome to the Heart Disease Prediction API!"
+
+
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == 'POST':
