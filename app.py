@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify
 import pickle
 import numpy as np
 from flask_cors import CORS
+import os
 
 # Load the Random Forest CLassifier model
 filename = 'heart-disease-prediction-knn-model.pkl'
@@ -43,4 +44,5 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
