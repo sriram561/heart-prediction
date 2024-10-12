@@ -22,19 +22,20 @@ def home():
 def predict():
     if request.method == 'POST':
 
-        age = int(request.form['age'])
-        sex = request.form.get('sex')
-        cp = request.form.get('cp')
-        trestbps = int(request.form['trestbps'])
-        chol = int(request.form['chol'])
-        fbs = request.form.get('fbs')
-        restecg = int(request.form['restecg'])
-        thalach = int(request.form['thalach'])
-        exang = request.form.get('exang')
-        oldpeak = float(request.form['oldpeak'])
-        slope = request.form.get('slope')
-        ca = int(request.form['ca'])
-        thal = request.form.get('thal')
+        data = request.json
+        age = int(data['age'])
+        sex = int(data['sex'])
+        cp = int(data['cp'])
+        trestbps = int(data['trestbps'])
+        chol = int(data['chol'])
+        fbs = int(data['fbs'])
+        restecg = int(data['restecg'])
+        thalach = int(data['thalach'])
+        exang = int(data['exang'])
+        oldpeak = float(data['oldpeak'])
+        slope = int(data['slope'])
+        ca = int(data['ca'])
+        thal = int(data['thal'])
 
         data = np.array([[age, sex, cp, trestbps, chol, fbs,
                         restecg, thalach, exang, oldpeak, slope, ca, thal]])
